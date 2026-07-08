@@ -4,17 +4,29 @@ const nav = [
   { href: '/about/', label: 'About' },
   { href: '/subscribe/', label: 'Subscribe' },
 ];
+
+const path = Astro.url.pathname;
+const isActive = (href: string) => path === href || (href !== '/' && path.startsWith(href));
 ---
 
 <header class="site-header">
-  <a class="brand" href="/" aria-label="The Unpackaged Traveler home">
-    <span class="brand-mark" aria-hidden="true">UT</span>
-    <span>
-      <strong>The Unpackaged Traveler</strong>
-      <small>Tours not required</small>
-    </span>
-  </a>
-  <nav aria-label="Primary navigation">
-    {nav.map((item) => <a href={item.href}>{item.label}</a>)}
-  </nav>
+  <div class="site-header-inner">
+    <a class="brand" href="/" aria-label="The Unpackaged Traveler home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" width="40" height="40" role="img" aria-hidden="true">
+          <path d="M7 27c6-11 13-16 25-18-5.5 7-10.5 14-15 24-2-5-5-7-10-6Z" fill="currentColor" />
+          <path d="M15 30c3.7-8.6 8-15 15.5-21" fill="none" stroke="var(--color-terracotta)" stroke-width="2.6" stroke-linecap="round" />
+        </svg>
+      </span>
+      <span class="brand-text">
+        <strong>The Unpackaged Traveler</strong>
+        <small>Tours not required</small>
+      </span>
+    </a>
+    <nav aria-label="Primary navigation">
+      {nav.map((item) => (
+        <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>
+      ))}
+    </nav>
+  </div>
 </header>

@@ -19,22 +19,26 @@ const latestPhotos = tripPhotosByPlan[latest.id] ?? [];
         I have spent 25 years learning how to travel well for less in 154 countries. This is that playbook, shaped for US retirees who want real adventure without handing the itinerary to a tour company.
       </p>
       <div class="actions">
-        <a class="button primary" href={`/trip-plans/${latest.id}/`}>Read the first trip plan</a>
+        <a class="button primary" href={`/trip-plans/${latest.id}/`}>Read the first trip plan <span aria-hidden="true">&rarr;</span></a>
         <a class="button secondary" href="/subscribe/">Subscribe free</a>
       </div>
     </div>
     <figure class="hero-media">
       <img src="/images/central-america-table.png" alt="Backpack, map, passport, and coffee on a Central America street table" />
+      <figcaption>Central America loop &middot; on the road, not on a bus tour</figcaption>
     </figure>
   </section>
 
   <section class="route-strip" aria-label="Featured route">
-    <span>Houston</span>
-    <span>San Salvador</span>
-    <span>Copan Ruinas</span>
-    <span>Tikal</span>
-    <span>Caye Caulker</span>
-    <span>Mexico City</span>
+    <span class="route-strip-label">The loop</span>
+    <ol>
+      <li>Houston</li>
+      <li>San Salvador</li>
+      <li>Copán Ruinas</li>
+      <li>Tikal</li>
+      <li>Caye Caulker</li>
+      <li>Mexico City</li>
+    </ol>
   </section>
 
   {latestPhotos.length > 0 && (

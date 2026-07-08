@@ -3,14 +3,20 @@ const year = new Date().getFullYear();
 ---
 
 <footer class="site-footer">
-  <div>
-    <strong>The Unpackaged Traveler</strong>
-    <p>Independent trip plans for travelers who have earned better than a bus-window version of the world.</p>
+  <div class="site-footer-inner">
+    <div class="footer-brand">
+      <span class="footer-stamp" aria-hidden="true">154<small>countries</small></span>
+      <div>
+        <strong>The Unpackaged Traveler</strong>
+        <p>Independent trip plans for travelers who have earned better than a bus-window version of the world.</p>
+      </div>
+    </div>
+    <nav aria-label="Footer navigation">
+      <a href="/trip-plans/">Trip plans</a>
+      <a href="/about/">About</a>
+      <a href="/subscribe/">Subscribe</a>
+      <a href="/disclosure/">Disclosure</a>
+    </nav>
+    <p class="copyright">&copy; {year} Gary Wilson · Stay longer, travel bolder, spend less.</p>
   </div>
-  <nav aria-label="Footer navigation">
-    <a href="/trip-plans/">Trip plans</a>
-    <a href="/disclosure/">Disclosure</a>
-    <a href="/subscribe/">Subscribe</a>
-  </nav>
-  <p class="copyright">&copy; {year} Gary Wilson.</p>
 </footer>

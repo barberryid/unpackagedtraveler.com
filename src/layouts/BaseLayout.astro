@@ -20,14 +20,31 @@ const { title, description, canonical, bodyClass = '' } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#f4efe4" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#191c17" media="(prefers-color-scheme: dark)" />
     <link rel="icon" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500&family=Inter:wght@400;500;600;700;800&display=swap"
+    />
     <SeoHead title={title} description={description} canonical={canonical} />
   </head>
   <body class={bodyClass}>
+    <a class="skip-link" href="#main">Skip to content</a>
     <Header />
-    <main>
+    <main id="main">
       <slot />
     </main>
     <Footer />
+    <script is:inline>
+      const header = document.querySelector('.site-header');
+      if (header) {
+        const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 8);
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+      }
+    </script>
   </body>
 </html>
