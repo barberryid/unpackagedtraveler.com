@@ -269,6 +269,76 @@ h1 {
   font-size: clamp(2.25rem, 5vw, 4.5rem);
 }
 
+.section-kicker {
+  display: grid;
+  gap: 0.35rem;
+  margin-bottom: 1.4rem;
+}
+
+.section-kicker h2 {
+  max-width: 16ch;
+  font-size: clamp(2.1rem, 4vw, 3.6rem);
+}
+
+.home-photo-section {
+  padding-top: 0;
+}
+
+.home-photo-rail {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.photo-gallery-section {
+  padding: 2rem 0 3rem;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.photo-card {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--color-line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 12px 34px rgba(32, 37, 31, 0.08);
+}
+
+.photo-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: var(--color-paper-soft);
+}
+
+.photo-card.compact img {
+  aspect-ratio: 1 / 1;
+}
+
+.photo-card figcaption {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.85rem;
+  color: var(--color-ink);
+  font-size: 0.9rem;
+  font-weight: 750;
+  line-height: 1.35;
+}
+
+.photo-card figcaption span {
+  color: var(--color-terracotta);
+  font-size: 0.68rem;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
 .quick-facts {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -523,6 +593,11 @@ dd {
   .quick-facts {
     grid-template-columns: 1fr;
   }
+
+  .home-photo-rail,
+  .photo-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 560px) {
@@ -541,5 +616,10 @@ dd {
 
   .article-body :where(h1) {
     font-size: 2.75rem;
+  }
+
+  .home-photo-rail,
+  .photo-grid {
+    grid-template-columns: 1fr;
   }
 }

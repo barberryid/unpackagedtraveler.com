@@ -2,9 +2,11 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE } from '../lib/seo';
+import { tripPhotosByPlan } from '../data/tripPhotos';
 
 const tripPlans = await getCollection('trip-plans');
 const latest = tripPlans.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())[0];
+const latestPhotos = tripPhotosByPlan[latest.id] ?? [];
 ---
 
 <BaseLayout title={SITE.name} description={SITE.description} bodyClass="home">
@@ -34,6 +36,26 @@ const latest = tripPlans.sort((a, b) => b.data.date.valueOf() - a.data.date.valu
     <span>Caye Caulker</span>
     <span>Mexico City</span>
   </section>
+
+  {latestPhotos.length > 0 && (
+    <section class="section home-photo-section" aria-labelledby="photos-heading">
+      <div class="section-kicker">
+        <p class="eyebrow">From the road</p>
+        <h2 id="photos-heading">Real photos from the loop.</h2>
+      </div>
+      <div class="home-photo-rail">
+        {latestPhotos.slice(0, 8).map((photo) => (
+          <figure class="photo-card compact">
+            <img src={photo.src} alt={photo.alt} loading="lazy" />
+            <figcaption>
+              <span>{photo.stop}</span>
+              {photo.label}
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
+  )}
 
   <section class="section feature-grid">
     <article>

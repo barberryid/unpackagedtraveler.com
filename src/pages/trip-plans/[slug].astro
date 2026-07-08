@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { tripPhotosByPlan } from '../../data/tripPhotos';
 
 export async function getStaticPaths() {
   const tripPlans = await getCollection('trip-plans');
@@ -12,6 +13,7 @@ export async function getStaticPaths() {
 
 const { plan } = Astro.props;
 const { Content } = await render(plan);
+const planPhotos = tripPhotosByPlan[plan.id] ?? [];
 const formattedDate = plan.data.date.toLocaleDateString('en-US', {
   month: 'long',
   day: 'numeric',
@@ -27,6 +29,25 @@ const formattedDate = plan.data.date.toLocaleDateString('en-US', {
         {plan.data.countries.map((country) => <span>{country}</span>)}
       </div>
     </header>
+    {planPhotos.length > 0 && (
+      <section class="photo-gallery-section" aria-labelledby="route-photos-heading">
+        <div class="section-kicker">
+          <p class="eyebrow">Route in photos</p>
+          <h2 id="route-photos-heading">What the two weeks actually looked like.</h2>
+        </div>
+        <div class="photo-grid">
+          {planPhotos.map((photo) => (
+            <figure class="photo-card">
+              <img src={photo.src} alt={photo.alt} loading="lazy" />
+              <figcaption>
+                <span>{photo.stop}</span>
+                {photo.label}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+    )}
     <div class="article-body prose prose-lg">
       <Content />
     </div>
