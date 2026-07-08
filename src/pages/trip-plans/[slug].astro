@@ -29,6 +29,9 @@ const formattedDate = plan.data.date.toLocaleDateString('en-US', {
         {plan.data.countries.map((country) => <span>{country}</span>)}
       </div>
     </header>
+    <div class="article-body prose prose-lg">
+      <Content />
+    </div>
     {planPhotos.length > 0 && (
       <section class="photo-gallery-section" aria-labelledby="route-photos-heading">
         <div class="section-kicker">
@@ -48,8 +51,5 @@ const formattedDate = plan.data.date.toLocaleDateString('en-US', {
         </div>
       </section>
     )}
-    <div class="article-body prose prose-lg">
-      <Content />
-    </div>
   </article>
 </BaseLayout>
