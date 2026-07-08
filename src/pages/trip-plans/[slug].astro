@@ -1,0 +1,34 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const tripPlans = await getCollection('trip-plans');
+  return tripPlans.map((plan) => ({
+    params: { slug: plan.id },
+    props: { plan },
+  }));
+}
+
+const { plan } = Astro.props;
+const { Content } = await render(plan);
+const formattedDate = plan.data.date.toLocaleDateString('en-US', {
+  month: 'long',
+  day: 'numeric',
+  year: 'numeric',
+});
+---
+
+<BaseLayout title={plan.data.title} description={plan.data.description} canonical={`/trip-plans/${plan.id}/`}>
+  <article class="article-shell">
+    <header class="article-header">
+      <p class="eyebrow">{plan.data.duration} - {plan.data.activity_level} - Updated {formattedDate}</p>
+      <div class="country-list">
+        {plan.data.countries.map((country) => <span>{country}</span>)}
+      </div>
+    </header>
+    <div class="article-body prose prose-lg">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>

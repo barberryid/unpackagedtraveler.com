@@ -1,0 +1,20 @@
+---
+const nav = [
+  { href: '/trip-plans/', label: 'Trip plans' },
+  { href: '/about/', label: 'About' },
+  { href: '/subscribe/', label: 'Subscribe' },
+];
+---
+
+<header class="site-header">
+  <a class="brand" href="/" aria-label="The Unpackaged Traveler home">
+    <span class="brand-mark" aria-hidden="true">UT</span>
+    <span>
+      <strong>The Unpackaged Traveler</strong>
+      <small>Tours not required</small>
+    </span>
+  </a>
+  <nav aria-label="Primary navigation">
+    {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+  </nav>
+</header>

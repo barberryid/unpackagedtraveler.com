@@ -1,0 +1,84 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../lib/seo';
+
+const tripPlans = await getCollection('trip-plans');
+const latest = tripPlans.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())[0];
+---
+
+<BaseLayout title={SITE.name} description={SITE.description} bodyClass="home">
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Independent 2 to 3 week trip plans</p>
+      <h1>The Unpackaged Traveler</h1>
+      <p class="dek">Stay longer, travel bolder, spend less. Tours not required.</p>
+      <p class="intro">
+        I have spent 25 years learning how to travel well for less in 154 countries. This is that playbook, shaped for US retirees who want real adventure without handing the itinerary to a tour company.
+      </p>
+      <div class="actions">
+        <a class="button primary" href={`/trip-plans/${latest.id}/`}>Read the first trip plan</a>
+        <a class="button secondary" href="/subscribe/">Subscribe free</a>
+      </div>
+    </div>
+    <figure class="hero-media">
+      <img src="/images/central-america-table.png" alt="Backpack, map, passport, and coffee on a Central America street table" />
+    </figure>
+  </section>
+
+  <section class="route-strip" aria-label="Featured route">
+    <span>Houston</span>
+    <span>San Salvador</span>
+    <span>Copan Ruinas</span>
+    <span>Tikal</span>
+    <span>Caye Caulker</span>
+    <span>Mexico City</span>
+  </section>
+
+  <section class="section feature-grid">
+    <article>
+      <p class="eyebrow">Launch trip plan</p>
+      <h2>{latest.data.title}</h2>
+      <p>{latest.data.description}</p>
+      <dl class="quick-facts">
+        <div>
+          <dt>Duration</dt>
+          <dd>{latest.data.duration}</dd>
+        </div>
+        <div>
+          <dt>Activity level</dt>
+          <dd>{latest.data.activity_level}</dd>
+        </div>
+        <div>
+          <dt>Countries</dt>
+          <dd>{latest.data.countries.length}</dd>
+        </div>
+      </dl>
+      <a class="text-link" href={`/trip-plans/${latest.id}/`}>Open the route plan</a>
+    </article>
+
+    <aside class="note-panel">
+      <h2>What each plan includes</h2>
+      <ul>
+        <li>Who the trip suits, and who should skip it</li>
+        <li>Day-by-day logistics with realistic transfer notes</li>
+        <li>Hotels, shuttle rhythms, cash rules, and border details</li>
+        <li>Costs compared with guided-tour pricing</li>
+      </ul>
+    </aside>
+  </section>
+
+  <section class="section newsletter-band">
+    <div>
+      <p class="eyebrow">Weekly dispatch</p>
+      <h2>One full trip plan a month, lighter notes between.</h2>
+    </div>
+    <form class="signup-form" action="#" method="post">
+      <label>
+        <span>Email address</span>
+        <input type="email" name="email" placeholder="you@example.com" />
+      </label>
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+</BaseLayout>
