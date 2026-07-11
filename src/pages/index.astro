@@ -3,22 +3,13 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE } from '../lib/seo';
 import { tripPhotosByPlan } from '../data/tripPhotos';
+import { tripMetaByPlan } from '../data/tripMeta';
 
 const tripPlans = await getCollection('trip-plans');
 const latest = tripPlans.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())[0];
 const latestPhotos = tripPhotosByPlan[latest.id] ?? [];
-
-const stops = [
-  'Houston',
-  'San Salvador',
-  'Copán Ruinas',
-  'Guatemala City',
-  'Tikal',
-  'Caye Caulker',
-  'Chetumal',
-  'Mexico City',
-  'Houston',
-];
+const meta = tripMetaByPlan[latest.id] ?? tripMetaByPlan['central-america-loop'];
+const { stops, hero, ledger } = meta;
 ---
 
 <BaseLayout title={SITE.name} description={SITE.description} bodyClass="home">
@@ -57,9 +48,7 @@ const stops = [
         One full route plan a month &middot; free
       </span>
     </div>
-    <p class="hero-stats fade-in" style="--d:1450ms">
-      5 countries in 14 days &middot; 3 land borders &middot; half the tour price
-    </p>
+    <p class="hero-stats fade-in" style="--d:1450ms">{meta.stats}</p>
     <svg class="hero-waves" viewBox="0 0 1440 240" preserveAspectRatio="none" aria-hidden="true">
       <path d="M-40,110 C160,35 400,170 680,115 C920,70 1160,155 1480,80" opacity="0.1" />
       <path d="M-40,130 C180,50 420,190 700,135 C940,85 1180,175 1480,100" opacity="0.16" />
@@ -70,11 +59,8 @@ const stops = [
   </section>
 
   <figure class="hero-photo">
-    <img
-      src="/images/trip-plans/central-america-loop/caye-caulker-morning-pier.jpg"
-      alt="A wooden pier stretching into calm sea under pastel morning light on Caye Caulker, Belize"
-    />
-    <figcaption>Caye Caulker, Belize &middot; day 9, before the water taxi</figcaption>
+    <img src={hero.src} alt={hero.alt} />
+    <figcaption>{hero.caption}</figcaption>
     <svg class="route-line" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true">
       <path
         class="route-path"
@@ -102,27 +88,27 @@ const stops = [
       <h2 id="ledger-heading">Half the price. Twice the trip.</h2>
       <dl class="ledger-grid">
         <div>
-          <dt>This route, independent</dt>
-          <dd>$1,650&ndash;2,220 <small>per person &middot; 14 days &middot; 5 countries</small></dd>
+          <dt>{ledger.independent.label}</dt>
+          <dd>{ledger.independent.value} <small>{ledger.independent.note}</small></dd>
         </div>
         <div>
-          <dt>Guided small-group tours</dt>
-          <dd>$3,000+ <small>per person &middot; about 8 days &middot; before flights</small></dd>
+          <dt>{ledger.guided.label}</dt>
+          <dd>{ledger.guided.value} <small>{ledger.guided.note}</small></dd>
         </div>
         <div>
-          <dt>The catch</dt>
-          <dd>You organise it <small>and each plan removes most of that work</small></dd>
+          <dt>{ledger.catch.label}</dt>
+          <dd>{ledger.catch.value} <small>{ledger.catch.note}</small></dd>
         </div>
       </dl>
       <p class="ledger-note">
-        Figures from the March 2026 run of the Central America Loop: real shuttles, real hotels, real border fees. Every plan publishes its costs the same way. <a href={`/trip-plans/${latest.id}/`}>See the full cost table</a>.
+        {ledger.note} <a href={`/trip-plans/${latest.id}/`}>See the full cost table</a>.
       </p>
     </div>
   </section>
 
   <section class="section feature-grid">
     <article>
-      <p class="tag">Launch trip plan</p>
+      <p class="tag">Latest trip plan</p>
       <h2>{latest.data.title}</h2>
       <p>{latest.data.description}</p>
       <dl class="facts-row">
@@ -158,9 +144,9 @@ const stops = [
       <div class="section-kicker">
         <p class="tag">From the road</p>
         <div class="kicker-row">
-          <h2 id="photos-heading">Real photos from the loop</h2>
+          <h2 id="photos-heading">{meta.photoHeading}</h2>
           <span class="kicker-rule" aria-hidden="true"></span>
-          <span class="kicker-meta">{latestPhotos.length} photos &middot; {latest.data.countries.length} countries</span>
+          <span class="kicker-meta">{latestPhotos.length} photos &middot; {meta.galleryNote}</span>
         </div>
       </div>
       <div class="home-photo-rail">
