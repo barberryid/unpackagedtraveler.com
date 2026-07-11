@@ -152,7 +152,7 @@ const { stops, hero, ledger } = meta;
       <div class="home-photo-rail">
         {latestPhotos.slice(0, 8).map((photo) => (
           <figure class="photo-card compact">
-            <img src={photo.src} alt={photo.alt} loading="lazy" />
+            <img src={photo.src} alt={photo.alt} loading="lazy" style={photo.pos ? `object-position: ${photo.pos}` : undefined} />
             <figcaption>
               <span>{photo.stop}</span>
               {photo.label}

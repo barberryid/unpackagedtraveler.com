@@ -45,7 +45,7 @@ const formattedDate = plan.data.date.toLocaleDateString('en-US', {
         <div class="photo-grid">
           {planPhotos.map((photo) => (
             <figure class="photo-card">
-              <img src={photo.src} alt={photo.alt} loading="lazy" />
+              <img src={photo.src} alt={photo.alt} loading="lazy" style={photo.pos ? `object-position: ${photo.pos}` : undefined} />
               <figcaption>
                 <span>{photo.stop}</span>
                 {photo.label}

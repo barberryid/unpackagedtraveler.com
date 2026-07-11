@@ -3,6 +3,8 @@ export interface TripPhoto {
   alt: string;
   stop: string;
   label: string;
+  /** optional object-position for the 4:3 card crop, e.g. '50% 18%' to keep faces in frame */
+  pos?: string;
 }
 
 export const tripPhotosByPlan: Record<string, TripPhoto[]> = {
@@ -320,6 +322,7 @@ export const tripPhotosByPlan: Record<string, TripPhoto[]> = {
       alt: 'Traveler sitting beside the bronze Charles Darwin statue',
       stop: 'Puerto Ayora',
       label: 'Sharing a bench with Darwin above the harbor',
+      pos: '50% 18%',
     },
     {
       src: '/images/trip-plans/galapagos-without-a-cruise/tortuga-bay-marine-iguanas.jpg',
