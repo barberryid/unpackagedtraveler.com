@@ -7,66 +7,125 @@ import { tripPhotosByPlan } from '../data/tripPhotos';
 const tripPlans = await getCollection('trip-plans');
 const latest = tripPlans.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())[0];
 const latestPhotos = tripPhotosByPlan[latest.id] ?? [];
+
+const stops = [
+  'Houston',
+  'San Salvador',
+  'Copán Ruinas',
+  'Guatemala City',
+  'Tikal',
+  'Caye Caulker',
+  'Chetumal',
+  'Mexico City',
+  'Houston',
+];
 ---
 
 <BaseLayout title={SITE.name} description={SITE.description} bodyClass="home">
   <section class="hero">
-    <div class="hero-copy">
-      <p class="eyebrow">Independent 2 to 3 week trip plans</p>
-      <h1>The Unpackaged Traveler</h1>
-      <p class="dek">Stay longer, travel bolder, spend less. Tours not required.</p>
-      <p class="intro">
-        I have spent 25 years learning how to travel well for less in 154 countries. This is that playbook, shaped for US retirees who want real adventure without handing the itinerary to a tour company.
-      </p>
-      <div class="actions">
-        <a class="button primary" href={`/trip-plans/${latest.id}/`}>Read the first trip plan <span aria-hidden="true">&rarr;</span></a>
-        <a class="button secondary" href="/subscribe/">Subscribe free</a>
-      </div>
+    <div class="hero-stamp fade-in" style="--d:1600ms" aria-hidden="true">
+      <svg class="stamp-ring" viewBox="0 0 140 140">
+        <defs>
+          <path id="stamp-circle" d="M70,70 m-53,0 a53,53 0 1,1 106,0 a53,53 0 1,1 -106,0" />
+        </defs>
+        <text>
+          <textPath href="#stamp-circle">154 countries &#183; 25 years &#183; carry-on only &#183;&#160;</textPath>
+        </text>
+      </svg>
+      <svg class="stamp-glyph" viewBox="0 0 24 24">
+        <path d="M2.5 12.5 21 3l-7.5 18-2.5-8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+      </svg>
     </div>
-    <figure class="hero-media">
-      <img src="/images/central-america-table.png" alt="Backpack, map, passport, and coffee on a Central America street table" />
-      <figcaption>Central America loop &middot; on the road, not on a bus tour</figcaption>
-    </figure>
+    <p class="hero-eyebrow fade-in" style="--d:100ms">
+      <span class="pulse" aria-hidden="true"></span>
+      Independent trip plans for US retirees
+    </p>
+    <h1>
+      <span class="reveal"><span style="--d:250ms">Tours not</span></span>
+      <span class="reveal"><span style="--d:430ms"><em>required.</em></span></span>
+    </h1>
+    <p class="hero-desc fade-in" style="--d:850ms">
+      I have spent <em>25 years</em> learning how to travel well for less in <em>154 countries</em>. This is that playbook, shaped for travelers who want real adventure without handing the itinerary to a tour company.
+    </p>
+    <div class="actions fade-in" style="--d:1150ms">
+      <a class="button primary" href={`/trip-plans/${latest.id}/`}>
+        Read the first trip plan
+        <span class="arrow" aria-hidden="true">&rarr;</span>
+      </a>
+      <span class="cta-meta">
+        <span class="pulse" aria-hidden="true"></span>
+        One full route plan a month &middot; free
+      </span>
+    </div>
+    <p class="hero-stats fade-in" style="--d:1450ms">
+      5 countries in 14 days &middot; 3 land borders &middot; half the tour price
+    </p>
+    <svg class="hero-waves" viewBox="0 0 1440 240" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M-40,110 C160,35 400,170 680,115 C920,70 1160,155 1480,80" opacity="0.1" />
+      <path d="M-40,130 C180,50 420,190 700,135 C940,85 1180,175 1480,100" opacity="0.16" />
+      <path d="M-40,150 C200,70 440,210 720,150 C960,100 1200,190 1480,120" opacity="0.26" />
+      <path d="M-40,170 C220,100 460,230 740,170 C980,120 1220,205 1480,145" opacity="0.2" />
+      <path d="M-40,190 C240,130 480,250 760,190 C1000,145 1240,225 1480,170" opacity="0.12" />
+    </svg>
   </section>
 
-  <section class="route-strip" aria-label="Featured route">
-    <span class="route-strip-label">The loop</span>
-    <ol>
-      <li>Houston</li>
-      <li>San Salvador</li>
-      <li>Copán Ruinas</li>
-      <li>Tikal</li>
-      <li>Caye Caulker</li>
-      <li>Mexico City</li>
-    </ol>
-  </section>
+  <figure class="hero-photo">
+    <img
+      src="/images/trip-plans/central-america-loop/caye-caulker-morning-pier.jpg"
+      alt="A wooden pier stretching into calm sea under pastel morning light on Caye Caulker, Belize"
+    />
+    <figcaption>Caye Caulker, Belize &middot; day 9, before the water taxi</figcaption>
+    <svg class="route-line" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true">
+      <path
+        class="route-path"
+        d="M-20,40 Q120,8 240,30 T460,26 T680,34 T900,22 T1120,30 L1220,26"
+        pathLength="1400"
+      />
+      <circle class="route-stop" cx="240" cy="30" r="5.5" />
+      <circle class="route-stop" cx="460" cy="26" r="5.5" />
+      <circle class="route-stop" cx="680" cy="34" r="5.5" />
+      <circle class="route-stop" cx="900" cy="22" r="5.5" />
+      <circle class="route-stop is-hot" cx="1120" cy="30" r="6.5" />
+    </svg>
+  </figure>
 
-  {latestPhotos.length > 0 && (
-    <section class="section home-photo-section" aria-labelledby="photos-heading">
-      <div class="section-kicker">
-        <p class="eyebrow">From the road</p>
-        <h2 id="photos-heading">Real photos from the loop.</h2>
-      </div>
-      <div class="home-photo-rail">
-        {latestPhotos.slice(0, 8).map((photo) => (
-          <figure class="photo-card compact">
-            <img src={photo.src} alt={photo.alt} loading="lazy" />
-            <figcaption>
-              <span>{photo.stop}</span>
-              {photo.label}
-            </figcaption>
-          </figure>
-        ))}
-      </div>
-    </section>
-  )}
+  <div class="route-ticker" aria-label="The Central America Loop route">
+    <ul>
+      {stops.map((stop) => <li>{stop}</li>)}
+      {stops.map((stop) => <li aria-hidden="true">{stop}</li>)}
+    </ul>
+  </div>
+
+  <section class="ledger" aria-labelledby="ledger-heading">
+    <div class="ledger-inner">
+      <p class="tag">The honest numbers</p>
+      <h2 id="ledger-heading">Half the price. Twice the trip.</h2>
+      <dl class="ledger-grid">
+        <div>
+          <dt>This route, independent</dt>
+          <dd>$1,650&ndash;2,220 <small>per person &middot; 14 days &middot; 5 countries</small></dd>
+        </div>
+        <div>
+          <dt>Guided small-group tours</dt>
+          <dd>$3,000+ <small>per person &middot; about 8 days &middot; before flights</small></dd>
+        </div>
+        <div>
+          <dt>The catch</dt>
+          <dd>You organise it <small>and each plan removes most of that work</small></dd>
+        </div>
+      </dl>
+      <p class="ledger-note">
+        Figures from the March 2026 run of the Central America Loop: real shuttles, real hotels, real border fees. Every plan publishes its costs the same way. <a href={`/trip-plans/${latest.id}/`}>See the full cost table</a>.
+      </p>
+    </div>
+  </section>
 
   <section class="section feature-grid">
     <article>
-      <p class="eyebrow">Launch trip plan</p>
+      <p class="tag">Launch trip plan</p>
       <h2>{latest.data.title}</h2>
       <p>{latest.data.description}</p>
-      <dl class="quick-facts">
+      <dl class="facts-row">
         <div>
           <dt>Duration</dt>
           <dd>{latest.data.duration}</dd>
@@ -94,9 +153,33 @@ const latestPhotos = tripPhotosByPlan[latest.id] ?? [];
     </aside>
   </section>
 
+  {latestPhotos.length > 0 && (
+    <section class="section home-photo-section" aria-labelledby="photos-heading">
+      <div class="section-kicker">
+        <p class="tag">From the road</p>
+        <div class="kicker-row">
+          <h2 id="photos-heading">Real photos from the loop</h2>
+          <span class="kicker-rule" aria-hidden="true"></span>
+          <span class="kicker-meta">{latestPhotos.length} photos &middot; {latest.data.countries.length} countries</span>
+        </div>
+      </div>
+      <div class="home-photo-rail">
+        {latestPhotos.slice(0, 8).map((photo) => (
+          <figure class="photo-card compact">
+            <img src={photo.src} alt={photo.alt} loading="lazy" />
+            <figcaption>
+              <span>{photo.stop}</span>
+              {photo.label}
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
+  )}
+
   <section class="section newsletter-band">
     <div>
-      <p class="eyebrow">Weekly dispatch</p>
+      <p class="tag">Weekly dispatch</p>
       <h2>One full trip plan a month, lighter notes between.</h2>
     </div>
     <form class="signup-form" action="#" method="post">

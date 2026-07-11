@@ -1,5 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="The Unpackaged Traveler">
-  <rect width="64" height="64" rx="10" fill="#f4efe4"/>
-  <path d="M12 43c10-17 21-25 40-29-9 11-17 22-24 38-3-8-8-11-16-9Z" fill="#236052"/>
-  <path d="M25 48c6-14 13-24 25-34" fill="none" stroke="#d15e34" stroke-width="4" stroke-linecap="round"/>
+  <rect width="64" height="64" rx="12" fill="#101c26"/>
+  <path d="M8 42 Q20 20 32 32 T56 24" fill="none" stroke="#0e7c86" stroke-width="4" stroke-linecap="round" stroke-dasharray="7 6"/>
+  <circle cx="12" cy="38" r="5" fill="#f7f9f7"/>
+  <circle cx="52" cy="25" r="6" fill="#d6568f"/>
 </svg>

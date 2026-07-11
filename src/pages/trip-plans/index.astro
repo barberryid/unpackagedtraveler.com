@@ -8,15 +8,15 @@ const sortedPlans = tripPlans.sort((a, b) => b.data.date.valueOf() - a.data.date
 
 <BaseLayout title="Trip Plans" description="Independent trip plans with real logistics, costs, hotels, and honest pacing notes.">
   <section class="page-hero">
-    <p class="eyebrow">Trip library</p>
-    <h1>Routes built from actual travel, not brochure arithmetic.</h1>
-    <p>Each plan is designed for a two or three week window, with enough comfort to enjoy the trip and enough independence to keep the price sane.</p>
+    <p class="tag">Trip library</p>
+    <h1>Routes built from actual travel</h1>
+    <p>Not brochure arithmetic. Each plan fits a two or three week window, with enough comfort to enjoy the trip and enough independence to keep the price sane.</p>
   </section>
 
   <section class="plan-list">
     {sortedPlans.map((plan) => (
       <article class="plan-card">
-        <p class="eyebrow">{plan.data.duration} · {plan.data.activity_level}</p>
+        <p class="tag">{plan.data.duration} &middot; {plan.data.activity_level}</p>
         <h2><a href={`/trip-plans/${plan.id}/`}>{plan.data.title}</a></h2>
         <p>{plan.data.description}</p>
         <ul>

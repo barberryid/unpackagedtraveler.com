@@ -24,19 +24,23 @@ const formattedDate = plan.data.date.toLocaleDateString('en-US', {
 <BaseLayout title={plan.data.title} description={plan.data.description} canonical={`/trip-plans/${plan.id}/`}>
   <article class="article-shell">
     <header class="article-header">
-      <p class="eyebrow">{plan.data.duration} - {plan.data.activity_level} - Updated {formattedDate}</p>
+      <p class="tag">{plan.data.duration} &middot; {plan.data.activity_level} &middot; Updated {formattedDate}</p>
       <div class="country-list">
         {plan.data.countries.map((country) => <span>{country}</span>)}
       </div>
     </header>
-    <div class="article-body prose prose-lg">
+    <div class="article-body">
       <Content />
     </div>
     {planPhotos.length > 0 && (
       <section class="photo-gallery-section" aria-labelledby="route-photos-heading">
         <div class="section-kicker">
-          <p class="eyebrow">Route in photos</p>
-          <h2 id="route-photos-heading">What the two weeks actually looked like.</h2>
+          <p class="tag">Route in photos</p>
+          <div class="kicker-row">
+            <h2 id="route-photos-heading">What the two weeks actually looked like</h2>
+            <span class="kicker-rule" aria-hidden="true"></span>
+            <span class="kicker-meta">{planPhotos.length} photos &middot; {plan.data.duration}</span>
+          </div>
         </div>
         <div class="photo-grid">
           {planPhotos.map((photo) => (
