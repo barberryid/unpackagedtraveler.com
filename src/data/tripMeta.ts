@@ -100,4 +100,45 @@ export const tripMetaByPlan: Record<string, TripMeta> = {
     photoHeading: 'Real photos from the islands',
     galleryNote: '3 islands',
   },
+
+  'tunisia-egypt-jordan-lebanon-loop': {
+    stops: [
+      'Tunis',
+      'Sidi Bou Said',
+      'Cairo',
+      'Alexandria',
+      'Dahab',
+      'Mount Sinai',
+      'Nuweiba',
+      'Petra',
+      'Amman',
+      'Beirut',
+    ],
+    hero: {
+      src: '/images/trip-plans/tunisia-egypt-jordan-lebanon-loop/petra-monastery-facade.jpg',
+      alt: 'The sandstone facade of the Monastery at Petra, carved into the cliff, with a Jordanian flag flying in front and a traveler standing for scale',
+      caption: 'The Monastery, Petra · day 12, after 800 steps up',
+    },
+    ledger: {
+      independent: {
+        label: 'This route, independent',
+        value: '$2,400–3,200',
+        note: 'per person · 16 days · 4 countries',
+      },
+      guided: {
+        label: 'Guided small-group tours',
+        value: '$5,500+',
+        note: 'per person · similar route, before flights',
+      },
+      catch: {
+        label: 'The catch',
+        value: 'You organise it',
+        note: 'and each plan removes most of that work',
+      },
+      note: 'Figures from the March 2018 run of this loop, with flight and fee ranges updated for current pricing. Real ferries, real border crossings, real hotels. Every plan publishes its costs the same way.',
+    },
+    stats: '4 countries in 16 days · 1 sea ferry · half the tour price',
+    photoHeading: 'Real photos from the loop',
+    galleryNote: '4 countries',
+  },
 };
