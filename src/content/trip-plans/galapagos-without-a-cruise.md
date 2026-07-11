@@ -53,7 +53,7 @@ The shape is the clever part. You fly into one end of the archipelago (Baltra) a
 
 **Day 9 - The choice day.** Option one: the 360° boat tour around the island ($140 with Pelican Tours when others quoted $180+), which circles San Cristóbal and snorkels Kicker Rock — the deep-water wall where hammerheads cruise below you. Ask for the counter-clockwise routing so the afternoon leg runs the calm north shore. Option two, free and superb: walk to La Lobería beach for the sea lions and surf, and spend the afternoon on the town beaches. Either way, dinner is a $6 encebollado or $3 shrimp skewers at Picantería Sarita — San Cristóbal eats better and cheaper than anywhere else on the route.
 
-**Day 10 - Fly to Guayaquil, bus to Cuenca.** San Cristóbal's airport is a ten-minute walk from town — have a bakery breakfast at Kachi Tanta, stroll to your gate. The late-morning LATAM flight lands in Guayaquil after lunch; from the adjacent bus terminal, comfortable coaches climb to Cuenca in about four hours ($10-12) through Cajas National Park. At 2,500 m, Cuenca is suddenly cool, quiet, and colonial — pack a sweater and drink water; you will feel the altitude the first evening.
+**Day 10 - Fly to Guayaquil, bus to Cuenca.** San Cristóbal's airport is a ten-minute walk from town — have a bakery breakfast at Kachi Tanta, stroll to your gate. The late-morning LATAM flight lands in Guayaquil after lunch; from the adjacent bus terminal, comfortable coaches climb to Cuenca in about four hours ($10-12) through Cajas National Park. At 2,500 m, Cuenca is suddenly cool, quiet, and colonial — pack a sweater and drink water; you will feel the altitude the first evening. We stayed at [Guillerminas Hostel Boutique](https://www.booking.com/searchresults.html?ss=Guillerminas+Hostel+Boutique+Cuenca), a friendly little place on Benigno Malo in the middle of the historic grid, about $33 a night for a double — proof that Cuenca is the cheapest fine city you will ever sleep in.
 
 **Days 11 - Cuenca.** The historic center is a UNESCO site you can cover on foot: the blue domes of the New Cathedral, the flower market, the 10 de Agosto market hall (eat where the queues are), and the Panama hat museum — the hats were always Ecuadorian, and Cuenca is their true home. This is the decompression day every Galápagos itinerary should have and almost none do.
 
@@ -70,7 +70,7 @@ All couple-friendly with private rooms, chosen for location and value. Bring cas
 | Puerto Villamil, Isabela | 4 | [Hostal Punta Arena](https://www.booking.com/searchresults.html?ss=Hostal+Punta+Arena+Puerto+Villamil) (cash only, breakfast $6) |
 | Puerto Ayora, Santa Cruz | 1 | [Hostal Gardner](https://www.booking.com/searchresults.html?ss=Hostal+Gardner+Puerto+Ayora) again |
 | Puerto Baquerizo Moreno, San Cristóbal | 2 | [Hostal La Posada de José Carlos](https://www.booking.com/searchresults.html?ss=La+Posada+de+Jose+Carlos+Puerto+Baquerizo+Moreno) |
-| Cuenca | 2 | Colonial-center hotels from about $35; book anything well-reviewed inside the historic grid |
+| Cuenca | 2 | [Guillerminas Hostel Boutique](https://www.booking.com/searchresults.html?ss=Guillerminas+Hostel+Boutique+Cuenca) (historic center, about $33 for a double with shared bath) |
 
 Free-cancellation rates weeks ahead, reconfirm a few days out — the same booking rhythm as every plan on this site. Island hotels are small; in high season book the Isabela nights first.
 
