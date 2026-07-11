@@ -74,9 +74,9 @@ export const tripMetaByPlan: Record<string, TripMeta> = {
       'Cuenca',
     ],
     hero: {
-      src: '/images/trip-plans/galapagos-without-a-cruise/tortuga-bay-white-sand.jpg',
-      alt: 'A lone traveler standing on the wide white sand of Tortuga Bay, Santa Cruz, Galápagos',
-      caption: 'Tortuga Bay, Santa Cruz · day 3 of the plan',
+      src: '/images/trip-plans/galapagos-without-a-cruise/isabela-beach-dusk.jpg',
+      alt: 'Lavender and pink dusk over the beach at Puerto Villamil, Isabela, with a couple sitting on the sand and beach-bar lights glowing',
+      caption: 'Puerto Villamil, Isabela · dusk on day 5',
     },
     ledger: {
       independent: {
