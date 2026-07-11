@@ -141,4 +141,43 @@ export const tripMetaByPlan: Record<string, TripMeta> = {
     photoHeading: 'Real photos from the loop',
     galleryNote: '4 countries',
   },
+
+  'venice-lake-bled-and-albania': {
+    stops: [
+      'Milan',
+      'Venice',
+      'Ljubljana',
+      'Lake Bled',
+      'Ljubljana Airport',
+      'Tirana',
+      'Berat',
+      'Tirana',
+    ],
+    hero: {
+      src: '/images/trip-plans/venice-lake-bled-and-albania/lake-bled-island-reflection.jpg',
+      alt: 'Lake Bled island church reflected in still water with the Slovenian mountains behind it',
+      caption: 'Lake Bled, Slovenia · day 4, before the crowds arrive',
+    },
+    ledger: {
+      independent: {
+        label: 'This route, independent',
+        value: '$1,410-$2,350',
+        note: 'per person · 10 days · 3 countries',
+      },
+      guided: {
+        label: 'Comparable small-group travel',
+        value: '$3,000+',
+        note: 'per person · usually fewer stops · before long-haul flights',
+      },
+      catch: {
+        label: 'The catch',
+        value: 'You organise it',
+        note: 'and each plan removes most of that work',
+      },
+      note: 'Figures from the May 2022 run, updated with a current-price cushion. Real train tickets, a €16 international bus, real hotels, and one short regional flight.',
+    },
+    stats: '3 countries in 10 days · €16 international bus · no rental car',
+    photoHeading: 'Real photos from the loop',
+    galleryNote: '3 countries',
+  },
 };
