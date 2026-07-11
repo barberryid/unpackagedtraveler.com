@@ -115,9 +115,9 @@ export const tripMetaByPlan: Record<string, TripMeta> = {
       'Beirut',
     ],
     hero: {
-      src: '/images/trip-plans/tunisia-egypt-jordan-lebanon-loop/petra-monastery-facade.jpg',
-      alt: 'The sandstone facade of the Monastery at Petra, carved into the cliff, with a Jordanian flag flying in front and a traveler standing for scale',
-      caption: 'The Monastery, Petra · day 12, after 800 steps up',
+      src: '/images/trip-plans/tunisia-egypt-jordan-lebanon-loop/sphinx-profile-camel-rider.jpg',
+      alt: 'A close profile view of the Great Sphinx of Giza with a camel rider crossing the desert in the background',
+      caption: 'The Sphinx, Giza · day 6, camel rider in the distance',
     },
     ledger: {
       independent: {

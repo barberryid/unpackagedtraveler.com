@@ -550,6 +550,12 @@ export const tripPhotosByPlan: Record<string, TripPhoto[]> = {
       label: 'All three pyramids in one shot, the plateau mostly empty',
     },
     {
+      src: '/images/trip-plans/tunisia-egypt-jordan-lebanon-loop/sphinx-profile-camel-rider.jpg',
+      alt: 'A close profile view of the Great Sphinx of Giza with a camel rider crossing the desert in the background',
+      stop: 'Giza',
+      label: 'The Sphinx in profile, a camel rider crossing behind it',
+    },
+    {
       src: '/images/trip-plans/tunisia-egypt-jordan-lebanon-loop/camel-riding-couple-giza.jpg',
       alt: 'A couple riding camels with the pyramids in the background',
       stop: 'Giza',
