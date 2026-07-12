@@ -142,6 +142,47 @@ export const tripMetaByPlan: Record<string, TripMeta> = {
     galleryNote: '4 countries',
   },
 
+  'maldives-malaysia-brunei-indonesia-timor-leste-loop': {
+    stops: [
+      'Malé',
+      'Dhigurah',
+      'Kuala Lumpur',
+      'Bandar Seri Begawan',
+      'Miri',
+      'Denpasar',
+      'Dili',
+      'Kupang',
+      'Jakarta',
+      'Yogyakarta',
+    ],
+    hero: {
+      src: '/images/trip-plans/maldives-malaysia-brunei-indonesia-timor-leste-loop/dhigurah-palm-sunset.jpg',
+      alt: 'Palm fronds framing a sunset over turquoise water on Dhigurah, Maldives',
+      caption: 'Dhigurah, Maldives · day 1, the first sunset of the loop',
+    },
+    ledger: {
+      independent: {
+        label: 'This route, independent',
+        value: '$1,670–2,460',
+        note: 'per person · 14 days · 5 countries',
+      },
+      guided: {
+        label: 'Guided small-group tours',
+        value: '$4,500+',
+        note: 'per person · similar length · skips Brunei and Timor-Leste entirely',
+      },
+      catch: {
+        label: 'The catch',
+        value: 'You organise it',
+        note: 'and each plan removes most of that work',
+      },
+      note: 'Figures from my April 2025 run of this loop: real budget flights, two land borders crossed on foot and by bus, real hostels and hotels. Every plan publishes its costs the same way.',
+    },
+    stats: '5 countries in 14 days · 2 land borders crossed on foot and by bus · half the guided-tour price',
+    photoHeading: 'Real photos from the loop',
+    galleryNote: '5 countries',
+  },
+
   'venice-lake-bled-and-albania': {
     stops: [
       'Milan',
