@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Page Not Found"
+  description="This page doesn't exist. Browse The Unpackaged Traveler's independent trip plans instead."
+  noindex
+>
+  <section class="page-hero compact">
+    <p class="tag">404</p>
+    <h1>This route doesn't exist.</h1>
+    <p>The page you're looking for has moved, or never existed. Here's where to go instead.</p>
+    <div class="actions">
+      <a class="button primary" href="/">
+        Back to the homepage
+        <span class="arrow" aria-hidden="true">&rarr;</span>
+      </a>
+      <a class="text-link" href="/trip-plans/">Browse the trip plans</a>
+    </div>
+  </section>
+</BaseLayout>

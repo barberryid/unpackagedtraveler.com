@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import SeoHead from '../components/SeoHead.astro';
 import Footer from '../components/Footer.astro';
+import { SITE, absoluteUrl } from '../lib/seo';
 import '../styles/global.css';
 
 interface Props {
@@ -9,9 +10,51 @@ interface Props {
   description?: string;
   canonical?: string;
   bodyClass?: string;
+  image?: string;
+  type?: 'website' | 'article';
+  publishedTime?: Date;
+  modifiedTime?: Date;
+  noindex?: boolean;
+  jsonLd?: object | object[];
 }
 
-const { title, description, canonical, bodyClass = '' } = Astro.props;
+const {
+  title,
+  description,
+  canonical,
+  bodyClass = '',
+  image,
+  type,
+  publishedTime,
+  modifiedTime,
+  noindex,
+  jsonLd,
+} = Astro.props;
+
+const siteJsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: SITE.name,
+    url: SITE.url,
+    description: SITE.description,
+    inLanguage: 'en-US',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: SITE.name,
+    url: SITE.url,
+    logo: absoluteUrl('/images/social/default-og.png'),
+    founder: {
+      '@type': 'Person',
+      name: SITE.author,
+    },
+  },
+];
+
+const pageJsonLd = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+const allJsonLd = [...siteJsonLd, ...pageJsonLd];
 ---
 
 <!doctype html>
@@ -29,7 +72,17 @@ const { title, description, canonical, bodyClass = '' } = Astro.props;
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Literata:ital,opsz,wght@0,7..72,400..700;1,7..72,400..600&family=Spline+Sans+Mono:wght@400..700&display=swap"
     />
-    <SeoHead title={title} description={description} canonical={canonical} />
+    <SeoHead
+      title={title}
+      description={description}
+      canonical={canonical}
+      image={image}
+      type={type}
+      publishedTime={publishedTime}
+      modifiedTime={modifiedTime}
+      noindex={noindex}
+      jsonLd={allJsonLd}
+    />
   </head>
   <body class={bodyClass}>
     <a class="skip-link" href="#main">Skip to content</a>

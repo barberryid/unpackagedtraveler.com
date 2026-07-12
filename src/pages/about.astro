@@ -1,8 +1,23 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { absoluteUrl } from '../lib/seo';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: 'About The Unpackaged Traveler',
+  url: absoluteUrl('/about/'),
+  mainEntity: {
+    '@type': 'Person',
+    name: 'Gary Wilson',
+    description:
+      "Independent travel writer with 25 years of experience across 154 countries, focused on practical, self-guided trip planning for active US retirees.",
+    image: absoluteUrl('/images/about/gary-isabel-trek.png'),
+  },
+};
 ---
 
-<BaseLayout title="About" description="About Gary Wilson and The Unpackaged Traveler.">
+<BaseLayout title="About" description="About Gary Wilson and The Unpackaged Traveler." jsonLd={jsonLd}>
   <section class="page-hero compact">
     <p class="tag">About</p>
     <h1>The playbook, not the package.</h1>
